@@ -69,12 +69,9 @@
 
     <div class="container">
         <h1>My Services 🎹</h1>
-
-        <!-- Displaying the service charge -->
         <div class="service-box">
             <input type="text" value="I charge $150 per session" readonly>
         </div>
-
         <!-- Form to input number of hours -->
         <form id="serviceForm">
             <label for="fname">First name:</label>
@@ -82,7 +79,6 @@
 
             <label for="lname">Last name:</label>
             <input type="text" id="lname" name="lname">
-
             <div>
                 <label for="quantity">How many hours of piano services do you need from me:</label>
                 <input type="number" id="quantity" name="quantity" min="1" max="40">
@@ -97,34 +93,33 @@
     </div>
 
     <!-- JavaScript for calculating total -->
-    <script>
-        function calculateTotal() {
-            var quantityInput = document.getElementById('quantity');
-            var totalOutput = document.getElementById("totalOutput");
+<script>
+    function calculateTotal() {
+        var quantityInput = document.getElementById('quantity');
+        var totalOutput = document.getElementById("totalOutput");
 
-            // Get the value entered by the user
-            var quantity = parseInt(quantityInput.value);
+        // Get the value entered by the user
+        var quantity = parseInt(quantityInput.value);
 
-            // Check if the value is a positive number
-            if (!isNaN(quantity) && quantity > 0) {
-                // Perform further calculations or actions
-                var chargePerHour = 150; // Example charge per hour
-                var total = quantity * chargePerHour;
+        // Check if the value is a positive number
+        if (!isNaN(quantity) && quantity > 0) {
+            // Perform further calculations or actions
+            var chargePerHour = 150; // Example charge per hour
+            var total = quantity * chargePerHour;
 
-                // Display the total message under the form
-                totalOutput.innerHTML = `
+            // Display the total message under the form
+            totalOutput.innerHTML = `
                                     <span style="color: black; font-weight: bold;">
                                         Your total charge for ${quantity} hours is: $${total}
                                     </span>
                                 `;
-                // Show the output box
-                totalOutput.style.display = 'block';
-            } else {
-                // Display an error message if the entered value is not a positive number
-                totalOutput.innerHTML = 'Please enter a valid positive number of hours.';
-                // Hide the output box if there's an error
-                totalOutput.style.display = 'none';
-            }
+            // Show the output box
+            totalOutput.style.display = 'block';
+        } else {
+            // Display an error message if the entered value is not a positive number
+            totalOutput.innerHTML = 'Invalid input. Please enter a positive number of hours.';
+            // Hide the output box if there's an error
+            totalOutput.style.display = 'block';
         }
-    </script>
-
+    }
+</script>
