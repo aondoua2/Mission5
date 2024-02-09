@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: cursive;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+
+        .service-box {
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            color: #000;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        .output-box {
+            display: none;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+
+    <div class="container">
+        <h1>My Services 🎹</h1>
+
+        <!-- Displaying the service charge -->
+        <div class="service-box">
+            <input type="text" value="I charge $150 per session" readonly>
+        </div>
+
+        <!-- Form to input number of hours -->
+        <form id="serviceForm">
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname">
+
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname">
+
+            <div>
+                <label for="quantity">How many hours of piano services do you need from me:</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="40">
+            </div>
+
+            <!-- Button to initiate the total calculation -->
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        </form>
+
+        <!-- Output box for calculated total -->
+        <div id="totalOutput" class="output-box"></div>
+    </div>
+
+    <!-- JavaScript for calculating total -->
+    <script>
+        function calculateTotal() {
+            var quantityInput = document.getElementById('quantity');
+            var totalOutput = document.getElementById("totalOutput");
+
+            // Get the value entered by the user
+            var quantity = parseInt(quantityInput.value);
+
+            // Check if the value is a positive number
+            if (!isNaN(quantity) && quantity > 0) {
+                // Perform further calculations or actions
+                var chargePerHour = 150; // Example charge per hour
+                var total = quantity * chargePerHour;
+
+                // Display the total message under the form
+                totalOutput.innerHTML = `
+                                    <span style="color: black; font-weight: bold;">
+                                        Your total charge for ${quantity} hours is: $${total}
+                                    </span>
+                                `;
+                // Show the output box
+                totalOutput.style.display = 'block';
+            } else {
+                // Display an error message if the entered value is not a positive number
+                totalOutput.innerHTML = 'Please enter a valid positive number of hours.';
+                // Hide the output box if there's an error
+                totalOutput.style.display = 'none';
+            }
+        }
+    </script>
+

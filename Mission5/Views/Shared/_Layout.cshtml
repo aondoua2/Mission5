@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ashley's hobby: piano 🎹</title>
+    <link rel="icon" type="image/png" href="/favicon_io/android-chrome-192x192.png">
+    <link rel="stylesheet" href="/css/site.css">
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add your other head content as needed -->
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <div class="w3-bar w3-border w3-light-grey">
+        <!-- header -->
+        <h1 class="center">ashley's hobby: piano 🎹</h1> <!-- navigation bar -->
+        <div class="menu">
+            <a href="~/Home/Index" class="link">Home</a>
+            <a href="~/Home/Service" class="link">Services</a>
+        </div>
+    </div>
+
+    <!-- Image section -->
+    <div class="row">
+        <!-- First column -->
+        <div class="column">
+            @RenderSection("LeftImage", required: false)
+        </div>
+        <!-- Second column -->
+        <div class="column">
+            @RenderSection("RightImage", required: false)
+        </div>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mission 5 Assignment. All rights reserved</p>
+    </footer>
+
+    <!-- Include jQuery -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Include Bootstrap JS -->
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Include your custom script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
